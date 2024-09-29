@@ -9,21 +9,21 @@ const arr = [0, -1, 2, -3, 1];
 const target = -2;
 
 // Brute force approach
-// function findSum(arr, target) {
-//   for (let i = 0; i < arr.length - 1; i++) {
-//     for (let j = i + 1; j < arr.length; j++) {
-//       const sum = arr[i] + arr[j];
-//       if (sum === target) {
-//         return true;
-//       }
-//     }
-//   }
-//   return false;
-// }
+function findSumBruteForce(arr, target) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      const sum = arr[i] + arr[j];
+      if (sum === target) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
 // Optimized approach
 
-function findSum(arr, target) {
+function findSumOptimized(arr, target) {
   const set = new Set();
   for (let i = 0; i < arr.length; i++) {
     const difference = target - arr[i];
@@ -34,7 +34,3 @@ function findSum(arr, target) {
   }
   return false;
 }
-
-const result = findSum(arr, target);
-
-console.log(result);
